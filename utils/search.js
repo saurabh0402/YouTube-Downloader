@@ -1,5 +1,11 @@
 var https = require('https'),
-	cheerio = require('cheerio');
+	cheerio = require('cheerio'),
+	EventEmitter = require('events').EventEmitter,
+	util = require('util');
+
+var searchClass = function(){}
+
+util.inherits(searchClass, EventEmitter);
 
 var options = {
 	host: "www.youtube.com",
@@ -7,24 +13,27 @@ var options = {
 	method: "GET"
 };
 
-function search(searchQuery){
+searchClass.prototype.search = function(searchQuery, pgNo){
 	var html = "";
 	options.path = options.path + encodeURIComponent(searchQuery);
+
+	if(pgNo > 1)
+		options.path = options.path + "&page=" + pgNo;
+
 	console.log("Give me a few seconds to get you the results...");
 	var req = https.request(options, (res) => {
 		res.on('data', (datum) => {
 			html += datum;
-
 		});
 
 		res.on('end', () => {
-			createResults(html);
+			this.createResults(html);
 		});
 	});
 	req.end();
 }
 
-function createResults(html){
+searchClass.prototype.createResults = function (html){
 	var $ = cheerio.load(html);
 
 	var videos = $('.yt-lockup-video');
@@ -42,10 +51,10 @@ function createResults(html){
 		}
 		i++
 	}
-	showResults(videoDetails);
+	this.showResults(videoDetails);
 }
 
-function showResults(videoDetails){
+searchClass.prototype.showResults = function (videoDetails){
 	count = 1;
 	videoDetails.forEach((item) => {
 		process.stdout.write("\033[31m" + count + ". \033[0m");
@@ -53,6 +62,8 @@ function showResults(videoDetails){
 		console.log("\033[31m- " + item.views + "\033[0m");
 		count++;
 	});
+	console.log("\033[31m" + count + "\033[0m" + ". Next");
+	this.emit('done', videoDetails);
 }
 
-module.exports = search;
+module.exports = new searchClass();

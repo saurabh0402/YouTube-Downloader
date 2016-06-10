@@ -1,4 +1,4 @@
-var	search = require('./utils/search');
+var	searchObj = require('./utils/search');
 
 process.stdin.resume();
 
@@ -10,6 +10,19 @@ process.stdin.resume();
 		if(searchQuery.toLowerCase() == 'quit'){
 			process.exit();
 		}
-		search(searchQuery);
+		searchObj.search(searchQuery, 1);
+	});
+
+	searchObj.on('done', (videoDetails) => {
+		process.stdout.write("Enter your choice: ");
+		var choice;
+		process.stdin.resume();
+		process.stdin.once('data', (data) => {
+			choice = Number(data.toString().slice(0, data.length - 1));
+			if(choice > videoDetails.length)
+				searchObj.search(searchQuery, 2);
+			else
+				console.log(videoDetails[choice - 1]);
+		});
 	});
 })();
