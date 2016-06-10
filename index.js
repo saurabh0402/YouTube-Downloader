@@ -1,4 +1,4 @@
-var	search = require('./search');
+var	search = require('./utils/search');
 
 process.stdin.resume();
 
@@ -8,7 +8,6 @@ process.stdin.resume();
 	process.stdin.once('data', (data) => {
 		searchQuery = data.toString().slice(0, data.length - 1);
 		if(searchQuery.toLowerCase() == 'quit'){
-			console.log("in");
 			process.exit();
 		}
 		search(searchQuery);

@@ -1,4 +1,5 @@
-var https = require('https');
+var https = require('https'),
+	cheerio = require('cheerio');
 
 var options = {
 	host: "www.youtube.com",
@@ -23,7 +24,11 @@ function search(searchQuery){
 }
 
 function createResults(html){
-
+	
 }
 
 module.exports = search;
+
+//Video-Tile: yt-lockup-video ->
+//Video-Title: yt-lockup-title ->
+//A single a tag, link: href, name: title
