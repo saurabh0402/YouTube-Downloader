@@ -1,4 +1,5 @@
 var	searchObj = require('./utils/search');
+var singleDownload = require('./utils/singleDownload')
 
 process.stdin.resume();
 
@@ -22,7 +23,7 @@ process.stdin.resume();
 			if(choice > videoDetails.length)
 				searchObj.search(searchQuery, ++pgNo);
 			else
-				console.log(videoDetails[choice - 1]);
+				singleDownload(videoDetails[choice - 1]);
 		});
 	});
 })();
