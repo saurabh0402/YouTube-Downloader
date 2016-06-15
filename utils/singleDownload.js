@@ -1,6 +1,6 @@
 var https = require('http'),
-	querystring = require('querystring'), 
-	fs = require('fs');
+	querystring = require('querystring'),
+	downloader = require('./downloader');
 
 var getInfo = {
 	host: "www.youtube.com",
@@ -23,14 +23,23 @@ function singleDownload(video) {
 				parsedUrls.push(querystring.parse(arr[i]));
 			}
 
+			console.log("--------------------------------------------------------------\n Download Options: ");
+
 			for(var i in parsedUrls){
-				console.log("-------------");
-				for(var j in parsedUrls[i]){
-					console.log(j + " = " + parsedUrls[i][j]);
-				}
-				console.log("--------------");
+				console.log((Number(i) + 1) + ". " + parsedUrls[i].quality + " : " + parsedUrls[i].type.split(";")[0]);
 			}
-			console.log("Done");
+
+			process.stdin.resume();
+			process.stdin.once('data', (data) => {
+				var choice;
+				choice = Number(data);
+				var url = parsedUrls[choice - 1].url;
+				url = url.slice(url.indexOf("/") + 2);
+				var host =  url.slice(0, url.indexOf("/"));
+				var	path = url.slice(url.indexOf("/"));
+
+				downloader.download(host, path)
+			});
 		});
 	});
 	req.end();
