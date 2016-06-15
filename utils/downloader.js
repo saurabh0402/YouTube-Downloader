@@ -16,8 +16,7 @@ Downloader.prototype.download = function(host, path){
 	};
 
 	var req = http.request(options, (res) => {
-		
-		var fileName = "xyz" + res.headers["content-type"].slice(res.headers["content-type"].indexOf("/") + 1);
+		var fileName = "xyz." + res.headers["content-type"].slice(res.headers["content-type"].indexOf("/") + 1);
 		var fileSize = res.headers["content-length"];
 		var saveFile = fs.createWriteStream(fileName);
 		var count = 5;

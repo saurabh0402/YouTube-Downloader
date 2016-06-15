@@ -38,7 +38,9 @@ function singleDownload(video) {
 				var host =  url.slice(0, url.indexOf("/"));
 				var	path = url.slice(url.indexOf("/"));
 
-				downloader.download(host, path)
+				downloader.download(host, path);
+
+				console.log(url);
 			});
 		});
 	});
