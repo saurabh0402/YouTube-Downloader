@@ -14,7 +14,7 @@ process.stdin.resume();
 		searchObj.search(searchQuery, pgNo);
 	});
 
-	searchObj.on('done', (videoDetails) => {
+	searchObj.once('done', (videoDetails) => {
 		process.stdout.write("Enter your choice: ");
 		var choice;
 		process.stdin.resume();
@@ -22,8 +22,12 @@ process.stdin.resume();
 			choice = Number(data.toString().slice(0, data.length - 1));
 			if(choice > videoDetails.length)
 				searchObj.search(searchQuery, ++pgNo);
-			else
-				singleDownload(videoDetails[choice - 1]);
+			else{
+				singleDownload.singleDownload(videoDetails[choice - 1]);
+				singleDownload.once('downloaded', () => {
+					main();
+				});
+			}
 		});
 	});
 })();

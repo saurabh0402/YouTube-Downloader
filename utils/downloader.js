@@ -35,6 +35,7 @@ Downloader.prototype.download = function(host, path){
 							console.log("\nDownload Complete!!");
 							saveFile.close();
 							watcher.close();
+							this.emit("downloaded");
 						}
 					}
 				});
@@ -43,7 +44,7 @@ Downloader.prototype.download = function(host, path){
 	
 	});
 
-	req.end()
+	req.end();
 }
 
 module.exports = new Downloader();

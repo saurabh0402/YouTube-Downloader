@@ -1,6 +1,8 @@
 var https = require('http'),
 	querystring = require('querystring'),
-	downloader = require('./downloader');
+	downloader = require('./downloader'),
+	EventEmitter = require('events').EventEmitter,
+	util = require('util');
 
 var getInfo = {
 	host: "www.youtube.com",
@@ -8,7 +10,11 @@ var getInfo = {
 	method: "GET"
 };
 
-function singleDownload(video) {
+function singleDownloadClass(){}
+
+util.inherits(singleDownloadClass, EventEmitter);
+
+singleDownloadClass.prototype.singleDownload = function(video) {
 	var link = video.link.slice(video.link.indexOf("=") + 1), videoInfo = "";
 	getInfo.path = getInfo.path + link;
 	var req = https.request(getInfo, (res) => {
@@ -17,6 +23,10 @@ function singleDownload(video) {
 		});
 
 		res.on('end', () => {
+			if(!querystring.parse(videoInfo).url_encoded_fmt_stream_map){
+				console.log("\033[31mThis Video is not available!!\033[0m");
+				return;
+			}
 			var parsedInfo = querystring.parse(videoInfo).url_encoded_fmt_stream_map, parsedUrls = [];
 			var arr = parsedInfo.split(",");
 			for(var i in arr){
@@ -40,11 +50,13 @@ function singleDownload(video) {
 
 				downloader.download(host, path);
 
-				console.log(url);
+				downloader.once('downloaded', () => {
+					this.emit('downloaded');
+				})
 			});
 		});
 	});
 	req.end();
 }
 
-module.exports = singleDownload;
+module.exports = new singleDownloadClass();
