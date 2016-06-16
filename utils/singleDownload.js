@@ -48,7 +48,7 @@ singleDownloadClass.prototype.singleDownload = function(video) {
 				var host =  url.slice(0, url.indexOf("/"));
 				var	path = url.slice(url.indexOf("/"));
 
-				downloader.download(host, path);
+				downloader.download(host, path, video.title);
 
 				downloader.once('downloaded', () => {
 					this.emit('downloaded');
