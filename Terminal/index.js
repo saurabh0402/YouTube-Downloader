@@ -3,7 +3,7 @@ var singleDownload = require('./utils/singleDownload')
 
 process.stdin.resume();
 
-(function main(){
+function main(){
 	var searchQuery, pgNo = 1;
 	process.stdout.write("Enter Search Term (Type quit to 'exit'): ");
 	process.stdin.once('data', (data) => {
@@ -30,4 +30,6 @@ process.stdin.resume();
 			}
 		});
 	});
-})();
+}
+
+module.exports = main;

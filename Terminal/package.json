@@ -1,7 +1,7 @@
 {
 	"name": "YouTube-Downloader",
 	"version": "0.0.1",
-	"description": "A YouTube Downloader that allows user to download a single file or a complete playlist",
+	"description": "A YouTube Downloader that works on the terminal and allows user to download a single file or a complete playlist",
 	"main": "index.js",
 	"author": "saurabh0402",
 	"dependencies": {
