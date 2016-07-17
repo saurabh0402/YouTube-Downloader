@@ -1,0 +1,64 @@
+@font-face {
+	font-family: champagne;
+	src: url('../fonts/Champagne & Limousines Bold.ttf');
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.divHeader {
+	width: 100%;
+	background-color: rgb(135, 45, 45);
+	padding: 10px 30px;
+}
+
+.divHeader i {
+	font-size: 3em;
+	color: white;
+}
+
+.divHeader .text {
+	color: white;
+	font-size: 3em;
+	font-family: champagne;
+	padding-left: 5px;
+}
+
+.divForm {
+	width: 100%;
+	padding: 30px 20px;
+	text-align: center;
+}
+
+.divForm form {
+	width: 60%;
+	display: inline-block;
+}
+
+.divForm form input[type = "text"] {
+	width: 80%;
+	font-family: champagne;
+	font-size: 1.3em;
+	padding: 5px 10px;
+	outline: none;
+	border-radius: 0px;
+	border: 1px solid rgb(135, 45, 45);
+	color: rgb(135, 45, 45);
+}
+
+.divForm form input[type = "submit"] {
+	width: 20%;
+	font-family: champagne;
+	font-size: 1.3em;
+	padding: 5px 10px;
+	outline: none;
+	border-radius: none;
+	border: 1px solid rgb(135, 45, 45);
+	background-color: rgb(135, 45, 45);
+	color: white;
+}

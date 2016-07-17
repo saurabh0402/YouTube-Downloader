@@ -5,7 +5,7 @@ var terminal = require('./Terminal/index'),
 
 var args = process.argv;
 
-if(args[2] == '-t'){
+if(args[2] == '-t' || args[2] == undefined){
 	terminal();
 }
 
