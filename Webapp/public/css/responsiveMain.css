@@ -1,4 +1,4 @@
-@media (max-width: 1000px){
+@media (max-width: 1100px){
 	.divHeader i {
 		font-size: 2em;
 	}
@@ -39,12 +39,21 @@
 		margin-bottom: 5px;
 		width: 100%;
 	}
+
+	.divDownload {
+		margin-top: 15px;
+	}
+
+	.downloadButton {
+		margin-left: 5px;
+		margin-top: 10px;
+		font-size: 0.9em;
+	}
 }
 
 @media (max-width: 700px){
 	.divMainVideo {
 		text-align: center;
-		height: auto;
 	}
 
 	.videoImage {
@@ -56,6 +65,10 @@
 
 	.videoDetail {
 		padding: 20px 30px;
-		height: auto;
 	} 
+
+	.divDownload {
+		font-size: 0.8em;
+		text-align: left;
+	}
 }
