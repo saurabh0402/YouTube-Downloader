@@ -1,0 +1,22 @@
+.waitingBar {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding-top: 80px;
+}
+
+.circle {
+	width: 20px;
+	height: 20px;
+	border-radius: 50px;
+	display: inline-block;
+	background-color: rgb(135, 45, 45);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.circle.big {
+	width: 30px;
+	height: 30px;
+}

@@ -1,6 +1,7 @@
 {{#section 'stylesheets'}}
 <link rel = "stylesheet" type = "text/css" href = "./css/main.css">
 <link rel = "stylesheet" type = "text/css" href = "./css/responsiveMain.css">
+<link rel = "stylesheet" type = "text/css" href = "./css/waitingBar.css">
 <link rel = "stylesheet" type = "text/css" href = "./css/font-awesome.min.css">
 {{/section}}
 
@@ -15,6 +16,14 @@
 		</form>
 	</div>
 	<div class = "divMainVideo">
+		<div class = "unloaded present">
+			<div class = "waitingBar">
+				<div class = "circle"></div>
+				<div class = "circle"></div>
+				<div class = "circle"></div>
+				<div class = "circle"></div>
+			</div>
+		</div>
 		<div class = "videoImage"><img src = "http://img.youtube.com/vi/L83qMnbJ198/0.jpg" class = "image"></div>
 		<div class = "videoDetail">
 			<div class = "videoTitle"> Rustom - Trailer </div>
@@ -42,3 +51,7 @@
 
 	</div>
 </div>
+
+{{#section 'js'}}
+<script src = "./js/waiting.js"></script>
+{{/section}}

@@ -81,6 +81,7 @@
 	margin-top: 10px;
 	padding: 10px;
 	margin-bottom: 100px;
+	position: relative;
 }
 
 .videoImage {
@@ -146,6 +147,24 @@
 	color: white;
 	margin-left: 10px;
 	margin-top: 10px;
+}
+
+.unloaded {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-color: white;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+}
+
+.unloaded.present {
+	display: inline-block;
+}
+
+.unloaded.gone {
+	display: none;
 }
 
 .divTrending {
