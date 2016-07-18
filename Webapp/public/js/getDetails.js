@@ -31,6 +31,7 @@
 		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		req.send("link=" + link);
 
+		document.getElementsByClassName("image")[0].src = "";
 		document.getElementsByClassName("divDownload")[0].innerHTML = "";
 		document.getElementsByClassName("unloaded")[0].className = "unloaded present";
 		startAnimation();

@@ -3,17 +3,17 @@ var https = require('http'),
 	EventEmitter = require('events').EventEmitter,
 	util = require('util');
 
-var getInfo = {
-	host: "www.youtube.com",
-	path: "/get_video_info?&video_id=",
-	method: "GET"
-};
-
 function getLinksClass(){}
 
 util.inherits(getLinksClass, EventEmitter);
 
 getLinksClass.prototype.getLinks = function(videoLink) {
+	var getInfo = {
+		host: "www.youtube.com",
+		path: "/get_video_info?&video_id=",
+		method: "GET"
+	};
+	
 	var link = videoLink.slice(videoLink.indexOf("=") + 1), videoInfo = "";
 	getInfo.path = getInfo.path + link;
 	var req = https.request(getInfo, (res) => {
@@ -23,7 +23,7 @@ getLinksClass.prototype.getLinks = function(videoLink) {
 
 		res.on('end', () => {
 			var parsed = querystring.parse(videoInfo);
-			console.log(parsed);
+
 			if(!parsed.url_encoded_fmt_stream_map){
 				this.emit("done", {error: 1, msg: "Video not available right now!"});
 				return;
