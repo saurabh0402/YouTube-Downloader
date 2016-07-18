@@ -1,4 +1,5 @@
 var express = require('express'),
+	bodyParser = require('body-parser'),
 	handlebars = require('express-handlebars').create({
 		defaultLayout: __dirname + '/views/layouts/main',
 		helpers: {
@@ -8,7 +9,8 @@ var express = require('express'),
 				return null;
 			}
 		}
-	});
+	}),
+	getLinks = require('./lib/getLinks');
 
 function main(){
 	var app = express();
@@ -19,9 +21,23 @@ function main(){
 	app.set('view engine', 'handlebars');
 
 	app.use(express.static(__dirname + "/public"));
+	app.use(bodyParser.urlencoded({extended: true}));
+	app.use(bodyParser.json());
 
 	app.get("/", (req, res) => {
 		res.render("index");
+	});
+
+	app.post("/getvideolink", (req, res) => {
+		var link = req.body.link;
+		getLinks.getLinks(link);
+		getLinks.on('error', (msg) => {
+			res.json(msg);
+		});
+
+		getLinks.on('done', (urls) => {
+			res.json(urls);
+		});
 	});
 
 	app.listen(3000, () => {
