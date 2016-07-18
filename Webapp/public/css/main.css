@@ -3,6 +3,11 @@
 	src: url('../fonts/Champagne & Limousines Bold.ttf');
 }
 
+@font-face {
+	font-family: geosans;
+	src: url('../fonts/GeosansLight.ttf');
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -29,36 +34,100 @@
 	padding-left: 5px;
 }
 
-.divForm {
-	width: 100%;
-	padding: 30px 20px;
+.divBody {
 	text-align: center;
+	width: 100%;
+	margin-top: 50px;
 }
 
-.divForm form {
+.divForm {
 	width: 60%;
 	display: inline-block;
 }
 
+.divForm form {
+	width: 100%;
+	display: inline-block;
+	border: 1px solid rgb(135, 45, 45);
+}
+
 .divForm form input[type = "text"] {
 	width: 80%;
-	font-family: champagne;
+	font-family: geosans;
 	font-size: 1.3em;
 	padding: 5px 10px;
 	outline: none;
 	border-radius: 0px;
-	border: 1px solid rgb(135, 45, 45);
 	color: rgb(135, 45, 45);
+	border: none;
 }
 
 .divForm form input[type = "submit"] {
 	width: 20%;
-	font-family: champagne;
+	font-family: geosans;
 	font-size: 1.3em;
 	padding: 5px 10px;
 	outline: none;
 	border-radius: none;
-	border: 1px solid rgb(135, 45, 45);
+	border: none;
 	background-color: rgb(135, 45, 45);
 	color: white;
+}
+
+.divMainVideo {
+	width: 70%;
+	border: 1px solid rgb(135, 45, 45);
+	display: inline-block;
+	margin-top: 10px;
+	padding: 10px;
+	height: 200px;
+	margin-bottom: 100px;
+}
+
+.videoImage {
+	width: 240px;
+	height: 180px;
+	position: absolute;
+}
+
+.videoImage img {
+	width: 100%;
+	height: 100%;
+}
+
+.videoDetail {
+	width: 100%;
+	padding-left: 260px;
+	height: 180px;
+	text-align: left;
+}
+
+.videoTitle {
+	font-family: champagne;
+	font-size: 1.4em;
+	color: rgb(135, 45, 45);
+}
+
+.basicDetails {
+	margin-top: 10px;
+	padding-left: 20px;
+	font-family: champagne;
+	color: rgba(135, 45, 45, 0.5);
+	font-size: 0.8em;
+}
+
+.basicDetails span {
+	margin-left: 10px;
+}
+
+.basicDetails div {
+	display: inline-block;
+	width: 30%;
+}
+
+.divTrending {
+	width: 80%;
+	border: 1px solid rgb(135, 45, 45);
+	display: inline-block;
+	height: 150px;
 }

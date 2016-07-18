@@ -1,0 +1,61 @@
+@media (max-width: 1000px){
+	.divHeader i {
+		font-size: 2em;
+	}
+
+	.divHeader .text {
+		font-size: 2em;
+	}
+
+	.divForm {
+		width: 90%;
+	}
+
+	.divForm form {
+		border: none;
+	}
+
+	.divForm form input[type = "text"] {
+		width: 100%;
+		border: 1px solid rgb(135, 45, 45);
+	}
+
+	.divForm form input[type = "submit"] {
+		width: 100%;
+		margin-top: 5px;
+		border: 1px solid rgb(135, 45, 45);
+	}
+
+	.divMainVideo {
+		width: 90%;
+	}
+
+	.divTrending {
+		display: none;
+	}
+
+	.basicDetails div {
+		display: block;
+		margin-bottom: 5px;
+		width: 100%;
+	}
+}
+
+@media (max-width: 700px){
+	.divMainVideo {
+		text-align: center;
+		height: auto;
+	}
+
+	.videoImage {
+		display: inline-block;
+		position: relative;
+		width: 90%;
+		height: 300px;
+	}
+
+	.videoDetail {
+		padding: 20px 30px;
+		height: auto;
+	} 
+}
