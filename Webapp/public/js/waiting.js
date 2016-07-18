@@ -1,12 +1,14 @@
+var startAnimation, stopAnimation;
+
 (function(){
 	var animation, count = 0, dir = 1;
 	var circles = document.getElementsByClassName("circle");
 
-	function startAnimation(){
+	startAnimation = function(){
 		animation = setTimeout(animate, 0);
 	}
 
-	function stopAnimation(){
+	stopAnimation = function(){
 		clearTimeout(animation);
 	}
 

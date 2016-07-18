@@ -11,7 +11,7 @@
 
 <div class = "divBody">
 	<div class = "divForm">
-		<form action = "#" method = "POST">
+		<form action = "#" method = "POST" name = "searchVid">
 			<input type = "text" placeholder = "Video Link here..." name = "link"><input type = "submit" value = "Search">
 		</form>
 	</div>
@@ -24,26 +24,15 @@
 				<div class = "circle"></div>
 			</div>
 		</div>
-		<div class = "videoImage"><img src = "http://img.youtube.com/vi/L83qMnbJ198/0.jpg" class = "image"></div>
+		<div class = "videoImage"><img src = "" class = "image"></div>
 		<div class = "videoDetail">
 			<div class = "videoTitle"> Rustom - Trailer </div>
 			<div class = "basicDetails">
 				<div class = "views">
-					<i class = "fa fa-youtube-play"></i><span class = "noViews">1190920 Views</span>
-				</div>
-				<div class = "likes">
-					<i class = "fa fa-thumbs-up"></i><span class = "noLikes">121 likes</span>
-				</div>
-				<div class = "unlikes">
-					<i class = "fa fa-thumbs-down"></i><span class = "noUnlikes">1 unlikes</span>
+					<i class = "fa fa-youtube-play"></i><span class = "noViews"></span>
 				</div>
 			</div>
 			<div class = "divDownload">
-				<div class = "downloadButton"> 720p/mkv </div>
-				<div class = "downloadButton"> Low/flv </div>
-				<div class = "downloadButton"> 720p/mkv </div>
-				<div class = "downloadButton"> 720p/mkv </div>
-				<div class = "downloadButton"> 720p/mkv </div>
 			</div>
 		</div>
 	</div>
@@ -54,4 +43,5 @@
 
 {{#section 'js'}}
 <script src = "./js/waiting.js"></script>
+<script src = "./js/getDetails.js"></script>
 {{/section}}
