@@ -31,18 +31,15 @@ function main(){
 	app.post("/getvideolink", (req, res) => {
 		var link = req.body.link;
 		getLinks.getLinks(link);
-		getLinks.on('error', (msg) => {
-			res.json(msg);
-		});
 
-		getLinks.on('done', (urls) => {
+		getLinks.once('done', (urls) => {
 			res.json(urls);
 		});
 	});
 
-	app.listen(3000, () => {
+	app.listen(app.get('port'), () => {
 		console.log("------------------------------------");
-		console.log("Server running on port 3000");
+		console.log("Server running on port " + app.get('port'));
 		console.log("------------------------------------");
 	});	
 }

@@ -22,12 +22,13 @@ getLinksClass.prototype.getLinks = function(videoLink) {
 		});
 
 		res.on('end', () => {
-			if(!querystring.parse(videoInfo).url_encoded_fmt_stream_map){
-				this.emit("error", {error: 1, msg: "Video not available right now!"});
+			var parsed = querystring.parse(videoInfo);
+			console.log(parsed);
+			if(!parsed.url_encoded_fmt_stream_map){
+				this.emit("done", {error: 1, msg: "Video not available right now!"});
 				return;
 			}
 
-			var parsed = querystring.parse(videoInfo);
 			var parsedInfo = parsed.url_encoded_fmt_stream_map, title = parsed.title,views = parsed.view_count, parsedUrls = [];
 			
 			var arr = parsedInfo.split(",");

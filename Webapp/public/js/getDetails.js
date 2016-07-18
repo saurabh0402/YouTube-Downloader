@@ -4,8 +4,9 @@
 		var link = this.link.value;
 		var req = new XMLHttpRequest();
 		req.onreadystatechange = function(){
-			console.log(req.readyState);
+			
 			if(req.readyState == 4){
+				console.log(req.responseText);
 				stopAnimation();
 				var obj = JSON.parse(req.responseText);
 				if(!obj.error){
@@ -29,6 +30,9 @@
 		req.open("POST", "/getvideolink");
 		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		req.send("link=" + link);
+
+		document.getElementsByClassName("divDownload")[0].innerHTML = "";
+		document.getElementsByClassName("unloaded")[0].className = "unloaded present";
 		startAnimation();
 	});
 })();
