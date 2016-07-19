@@ -31,13 +31,15 @@ getLinksClass.prototype.getLinks = function(videoLink) {
 			}
 
 			var parsedInfo = parsed.url_encoded_fmt_stream_map, title = parsed.title,views = parsed.view_count, parsedUrls = [];
+			console.log(parsed);
+			var videoImg = parsed.iurlsd || parsed.iurlhq || parsed.iurlhq_webp || parsed.iurlmaxres || parsed.iurlmq || parsed.iurlmq_webp || parsed.iurlmaxres_webp || parsed.iurl || parsed.iurlsd_wep || parsed.iurl_webp;
 			
 			var arr = parsedInfo.split(",");
 			for(var i in arr){
 				parsedUrls.push(querystring.parse(arr[i]));
 			}
 
-			this.emit("done", {error: 0, title: title, views: views, img: parsed.iurlsd, urls: parsedUrls});
+			this.emit("done", {error: 0, title: title, views: views, img: videoImg, urls: parsedUrls});
 		});
 	});
 	req.end();

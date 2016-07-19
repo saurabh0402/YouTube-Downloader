@@ -6,7 +6,6 @@
 		req.onreadystatechange = function(){
 			
 			if(req.readyState == 4){
-				console.log(req.responseText);
 				stopAnimation();
 				var obj = JSON.parse(req.responseText);
 				if(!obj.error){
