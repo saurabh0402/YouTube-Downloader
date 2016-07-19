@@ -8,6 +8,7 @@ function getLinksClass(){}
 util.inherits(getLinksClass, EventEmitter);
 
 getLinksClass.prototype.getLinks = function(videoLink) {
+	var appendLater = "&eurl=https%3A%2F%2Fs0.2mdn.net%2Fads%2Frichmedia%2Fstudio%2Fpv2%2F38045893%2FDV_0%2F20160715032241822%2Flayout.html%3Fe%3D69%26renderingType%3D2%26leftOffset%3D0%26topOf&el=adunit&hl=en_US&sts=16989&lact=126&adformat=1_8&cc_load_policy=3";
 	var getInfo = {
 		host: "www.youtube.com",
 		path: "/get_video_info?&video_id=",
@@ -15,7 +16,7 @@ getLinksClass.prototype.getLinks = function(videoLink) {
 	};
 	
 	var link = videoLink.slice(videoLink.indexOf("=") + 1), videoInfo = "";
-	getInfo.path = getInfo.path + link;
+	getInfo.path = getInfo.path + link + appendLater;
 	var req = https.request(getInfo, (res) => {
 		res.on('data', (data) => {
 			videoInfo += data;
