@@ -23,6 +23,13 @@
 					});
 
 					document.getElementsByClassName("unloaded")[0].className = "unloaded gone";
+					document.getElementsByClassName("error")[0].className = "error gone";
+				}
+
+				else {
+					document.getElementsByClassName("unloaded")[0].className = "unloaded gone";
+					document.getElementsByClassName("error")[0].className = "error present";
+					document.getElementsByClassName("errorRight")[0].innerHTML = obj.msg;
 				}
 			}
 		}
@@ -33,6 +40,7 @@
 		document.getElementsByClassName("image")[0].src = "";
 		document.getElementsByClassName("divDownload")[0].innerHTML = "";
 		document.getElementsByClassName("unloaded")[0].className = "unloaded present";
+		document.getElementsByClassName("error")[0].className = "error gone";
 		startAnimation();
 	});
 })();

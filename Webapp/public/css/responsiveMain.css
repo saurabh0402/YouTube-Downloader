@@ -71,4 +71,19 @@
 		font-size: 0.8em;
 		text-align: left;
 	}
+
+	.errorLeft {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+
+	.errorRight {
+		width: 100%;
+		padding: 40px 0px;
+		position: relative;
+		left: 0px;
+		text-align: center;
+		height: auto;
+	}
 }

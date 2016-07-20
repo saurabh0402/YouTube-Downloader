@@ -24,9 +24,8 @@ getLinksClass.prototype.getLinks = function(videoLink) {
 
 		res.on('end', () => {
 			var parsed = querystring.parse(videoInfo);
-
 			if(!parsed.url_encoded_fmt_stream_map){
-				this.emit("done", {error: 1, msg: "Video not available right now!"});
+				this.emit("done", {error: 1, msg: parsed.reason.slice(0, parsed.reason.indexOf("\n"))});
 				return;
 			}
 
