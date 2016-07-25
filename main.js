@@ -5,11 +5,11 @@ var terminal = require('./Terminal/index'),
 
 var args = process.argv;
 
-if(args[2] == '-t' || args[2] == undefined){
+if(args[2] == '-t'){
 	terminal();
 }
 
-else if(args[2] == '-b'){
+else if(args[2] == '-b'  || args[2] == undefined){
 	web();
 }
 

@@ -4,7 +4,7 @@
   "description": "A multipurpose YouTube-Downloader",
   "main": "main.js",
   "scripts": {
-  	"start": "node ./main -b"
+  	"start": "node ./main"
   	},
   "author": "saurabh0402",
   "dependencies": {
